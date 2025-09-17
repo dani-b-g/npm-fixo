@@ -31,6 +31,22 @@ Output format:
 Examples:
   npm-fiso globals ./watchlist.txt ./out.txt
   cat list.txt | npm-fiso project - -
+
+Bundled watchlists:
+  This package includes ready-to-use watchlists under:
+    node_modules/npm-fiso/watchlists/
+
+You can pass them as the first argument (watchlist). Examples:
+
+    # Local install (project)
+    npm-fiso project ./node_modules/npm-fiso/watchlists/<file>.txt -
+
+    # Global install (bash/zsh)
+    WATCHLIST="$(npm root -g)/npm-fiso/watchlists/<file>.txt"
+    npm-fiso globals "$WATCHLIST" -
+
+    # Cross-platform (compute absolute path at runtime)
+    node -p "require('path').join(require('path').dirname(require.resolve('npm-fiso/package.json')), 'watchlists', '<file>.txt')"
 `);
 }
 

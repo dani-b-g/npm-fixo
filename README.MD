@@ -207,17 +207,58 @@ npm-fiso globals ./watchlist.txt -
 npm-fiso project ./watchlist.txt -
 ```
 
-Pack & publish:
+## Bundled watchlists
 
-```bash
-npm pack
-# produces npm-fiso-<version>.tgz
+This package ships with a set of **predefined watchlists** under:
 
-npm login
-npm publish --access public
+```
+node_modules/npm-fiso/watchlists/
 ```
 
+You can pass any of these files as the `watchlist` argument (first CLI parameter), just like you would with your own files.
+
+### Using a bundled watchlist (project mode)
+
+**If `npm-fiso` is installed locally** (dev dependency):
+
+```bash
+npm-fiso project ./node_modules/npm-fiso/watchlists/<file>.txt -
+```
+
+**If `npm-fiso` is installed globally**, compute the absolute path:
+
+```bash
+# macOS/Linux (bash/zsh)
+WATCHLIST="$(npm root -g)/npm-fiso/watchlists/<file>.txt"
+npm-fiso globals "$WATCHLIST" -
+```
+
+**Cross-platform (macOS/Linux/Windows) via Node resolution:**
+
+```bash
+# macOS/Linux (bash/zsh)
+WATCHLIST=$(node -p "require('path').join(require('path').dirname(require.resolve('npm-fiso/package.json')), 'watchlists', '<file>.txt')")
+npm-fiso project "$WATCHLIST" -
+
+# Windows PowerShell
+$watchlist = Join-Path (Split-Path (node -p "require('path').dirname(require.resolve('npm-fiso/package.json'))")) "watchlists\<file>.txt"
+npm-fiso project $watchlist -
+```
+
+### Listing bundled files
+
+```bash
+# macOS/Linux
+node -e "const fs=require('fs'),p=require('path');const base=p.dirname(require.resolve('npm-fiso/package.json'));console.log(fs.readdirSync(p.join(base,'watchlists')).join('\n'));"
+
+# Windows PowerShell
+node -e "const fs=require('fs'),p=require('path');const base=p.dirname(require.resolve('npm-fiso/package.json'));console.log(fs.readdirSync(p.join(base,'watchlists')).join('\n'));"
+```
+
+> Tip: When using `npx npm-fiso ...`, you can still compute the path at runtime using the Node snippet above and pass it to the CLI.
+
 ---
+
 
 ## License
 
