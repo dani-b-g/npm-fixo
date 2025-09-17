@@ -1,0 +1,41 @@
+{
+  "name": "npm-fiso",
+  "version": "1.0.0",
+  "description": "Application to check vulnerable npm dependencies (toplevel + transitive) from a watchlist, with root path traces.",
+  "main": "index.js",
+  "bin": {
+    "npm-fiso": "./bin/npm-fiso.js"
+  },
+  "type": "commonjs",
+  "engines": {
+    "node": ">=14"
+  },
+  "files": [
+    "bin",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "echo \"No tests yet\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dani-b-g/npm-fiso.git"
+  },
+  "keywords": [
+    "vulnerabilities",
+    "npm",
+    "checker",
+    "helper",
+    "cli",
+    "security",
+    "dependencies"
+  ],
+  "author": "Daniel Barriga Grados",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dani-b-g/npm-fiso/issues"
+  },
+  "homepage": "https://github.com/dani-b-g/npm-fiso#readme"
+}
