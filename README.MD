@@ -217,12 +217,14 @@ This package includes ready-to-use watchlists under `watchlists/` and exposes si
 The `.txt` extension is optional.
 
 **Examples**
+
 ```bash
 # Project mode (print to STDOUT)
 npm-fiso project @bundled/common -
 
 # Globals mode
 npm-fiso globals bundled:angular -
+```
 ---
 
 Here’s a **README section** you can drop in, showing the bundled watchlists in a table and linking to the repo file. I used your current path **`watchlist/npm_160925.txt`** and provided alias examples.
