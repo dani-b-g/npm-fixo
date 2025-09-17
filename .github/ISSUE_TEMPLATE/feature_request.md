@@ -1,7 +1,7 @@
 name: "✨ Feature request"
 about: Suggest an idea or improvement for npm-fiso
 title: "[Feature]: "
-labels: ["new-feature"]
+labels: ["enhancement"]
 assignees: []
 ---
 
