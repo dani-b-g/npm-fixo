@@ -137,6 +137,56 @@ async function findProjectMatchesWithTrace(watchMap) {
   }
   return matches;
 }
+/** Resolve bundled alias to an absolute file path.
+ *  Supported forms:
+ *   - @bundled/<name>    (adds .txt if missing)
+ *   - bundled:<name>     (adds .txt if missing)
+ */
+function resolveBundledWatchlistPath(arg) {
+  if (!arg) return null;
+
+  if (arg.startsWith("@bundled/")) {
+    const name = arg.slice("@bundled/".length);
+    const fname = name.endsWith(".txt") ? name : `${name}.txt`;
+    // package root = ../ from src/, then /watchlists
+    return path.join(__dirname, "..", "watchlists", fname);
+  }
+
+  if (arg.startsWith("bundled:")) {
+    const name = arg.slice("bundled:".length);
+    const fname = name.endsWith(".txt") ? name : `${name}.txt`;
+    return path.join(__dirname, "..", "watchlists", fname);
+  }
+
+  return null;
+}
+
+async function readWatchlistText(watchArg) {
+  if (!watchArg || watchArg === "-") {
+    return await readAllStdin();
+  }
+
+  // 1) Alias @bundled/<file> o bundled:<file>
+  const bundledPath = resolveBundledWatchlistPath(watchArg);
+
+  // 2) Si no es alias, resolvemos relativo al CWD
+  const targetPath = bundledPath || path.resolve(process.cwd(), watchArg);
+
+  try {
+    return fs.readFileSync(targetPath, "utf8");
+  } catch (e) {
+    // Mensaje claro si falló un alias
+    if (bundledPath) {
+      console.error(
+        `Bundled watchlist not found: ${targetPath}\n` +
+        `Make sure the file exists under "watchlists/" in the package.`
+      );
+    } else {
+      console.error(`Watchlist file not found: ${targetPath}`);
+    }
+    process.exit(1);
+  }
+}
 
 module.exports = {
   readWatchlistText,
