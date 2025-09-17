@@ -1,6 +1,6 @@
 {
   "name": "npm-fiso",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Application to check vulnerable npm dependencies (toplevel + transitive) from a watchlist, with root path traces.",
   "main": "index.js",
   "bin": {
