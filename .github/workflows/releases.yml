@@ -20,7 +20,7 @@ jobs:
           node-version: 20
           registry-url: https://registry.npmjs.org/
 
-      - run: npm ci
+      - run: npm i
 
       # Skipping tests for now, chanto to `npm test`
       - run: echo "Skipping tests for now"
