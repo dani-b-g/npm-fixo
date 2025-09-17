@@ -20,7 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.0] - 2025-09-18
 ### Added
-- **CLI `npm-fiso`** with two subcommands:
+- **CLI `npm-fixo`** with two subcommands:
   - `globals`: scans global npm dependencies using `npm ls -g --all --json`.
   - `project`: scans the current project using `npm ls --all --json`.
 - **Full tree traversal** (toplevel + transitivas) and **trace output**:
@@ -32,7 +32,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Watchlist from **file** or **STDIN** (`-`).
   - Results to **file** or **STDOUT** (`-`).
 - **Packaging**:
-  - `bin/npm-fiso.js` as executable.
+  - `bin/npm-fixo.js` as executable.
   - Whitelisted files for npm publish (`bin`, `src`, `README.md`, `LICENSE`, y la carpeta `watchlist/`).
   - `engines: { "node": ">=14" }`.
 
@@ -41,4 +41,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-[1.1.0]: https://github.com/dani-b-g/npm-fiso/compare/v1.0.0...v1.1.0
+[1.1.0]: https://github.com/dani-b-g/npm-fixo/compare/v1.0.0...v1.1.0
