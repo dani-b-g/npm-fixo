@@ -1,4 +1,4 @@
-# npm-fiso
+# npm-fixo
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
@@ -27,13 +27,13 @@ Supports two modes:
 ### Global install
 
 ```bash
-npm i -g npm-fiso
+npm i -g npm-fixo
 ```
 
 ### On the fly (no install)
 
 ```bash
-npx npm-fiso --help
+npx npm-fixo --help
 ```
 
 ---
@@ -41,9 +41,9 @@ npx npm-fiso --help
 ## Usage
 
 ```
-npm-fiso globals [watchlist] [output]
-npm-fiso project [watchlist] [output]
-npm-fiso -h | --help
+npm-fixo globals [watchlist] [output]
+npm-fixo project [watchlist] [output]
+npm-fixo -h | --help
 ```
 
 **Args**
@@ -57,11 +57,11 @@ npm-fiso -h | --help
 
 ```bash
 # File -> File
-npm-fiso globals ./watchlist.txt ./out-globals.txt
-npm-fiso project ./watchlist.txt ./out-project.txt
+npm-fixo globals ./watchlist.txt ./out-globals.txt
+npm-fixo project ./watchlist.txt ./out-project.txt
 
 # STDIN -> STDOUT
-cat watchlist.txt | npm-fiso project - -
+cat watchlist.txt | npm-fixo project - -
 ```
 
 ---
@@ -181,14 +181,14 @@ npm    chalk@5.3.0         chalk@5.3.0 > ansi-styles@6.2.1
 * **Monorepos / large trees**
 
   * The tool increases stdout buffer to handle large JSON outputs.
-  * Run `npm-fiso project` from the **project root** whose `node_modules` you want to analyze.
+  * Run `npm-fixo project` from the **project root** whose `node_modules` you want to analyze.
 
 * **Windows paths**
 
   * Quote arguments with spaces:
 
     ```bash
-    npm-fiso project "C:\path with spaces\watchlist.txt" "C:\path with spaces\out.txt"
+    npm-fixo project "C:\path with spaces\watchlist.txt" "C:\path with spaces\out.txt"
     ```
 
 ---
@@ -199,12 +199,12 @@ Local test:
 
 ```bash
 # from repo root
-chmod +x bin/npm-fiso.js
+chmod +x bin/npm-fixo.js
 npm link
 
-npm-fiso --help
-npm-fiso globals ./watchlist.txt -
-npm-fiso project ./watchlist.txt -
+npm-fixo --help
+npm-fixo globals ./watchlist.txt -
+npm-fixo project ./watchlist.txt -
 ```
 
 ## Bundled watchlists (aliases)
@@ -220,10 +220,10 @@ The `.txt` extension is optional.
 
 ```bash
 # Project mode (print to STDOUT)
-npm-fiso project @bundled/common -
+npm-fixo project @bundled/common -
 
 # Globals mode
-npm-fiso globals bundled:angular -
+npm-fixo globals bundled:angular -
 ```
 ---
 
@@ -239,7 +239,7 @@ These watchlists ship with the package and can be referenced by **path** or by *
 
 | Alias                 | File path                  | Description                           | View in repo                                                                         |
 | --------------------- | -------------------------- | ------------------------------------- | ------------------------------------------------------------------------------------ |
-| `@bundled/npm_160925` | `watchlist/npm_160925.txt` | Snapshot watchlist (dated 2025-09-16) | [Open file](https://github.com/dani-b-g/npm-fiso/blob/main/watchlist/npm_160925.txt) |
+| `@bundled/npm_160925` | `watchlist/npm_160925.txt` | Snapshot watchlist (dated 2025-09-16) | [Open file](https://github.com/dani-b-g/npm-fixo/blob/main/watchlist/npm_160925.txt) |
 
 ### Usage examples
 
@@ -247,21 +247,21 @@ These watchlists ship with the package and can be referenced by **path** or by *
 
 ```bash
 # Using alias
-npm-fiso project @bundled/npm_160925 -
+npm-fixo project @bundled/npm_160925 -
 
 # Using direct path (when installed locally)
-npm-fiso project ./node_modules/npm-fiso/watchlist/npm_160925.txt -
+npm-fixo project ./node_modules/npm-fixo/watchlist/npm_160925.txt -
 ```
 
 **Globals mode**
 
 ```bash
 # Using alias
-npm-fiso globals bundled:npm_160925 -
+npm-fixo globals bundled:npm_160925 -
 
 # Using absolute path (cross-platform via Node resolution)
-WATCHLIST="$(node -p "require('path').join(require('path').dirname(require.resolve('npm-fiso/package.json')), 'watchlist', 'npm_160925.txt')")"
-npm-fiso globals "$WATCHLIST" -
+WATCHLIST="$(node -p "require('path').join(require('path').dirname(require.resolve('npm-fixo/package.json')), 'watchlist', 'npm_160925.txt')")"
+npm-fixo globals "$WATCHLIST" -
 ```
 
 > Tip: The `.txt` extension is optional when using aliases (e.g., `@bundled/npm_160925`).

@@ -11,12 +11,12 @@ const {
 
 function printHelp() {
   console.log(`
-npm-fiso — scan npm dependencies against a watchlist
+npm-fixo — scan npm dependencies against a watchlist
 
 Usage:
-  npm-fiso globals [watchlist] [output]
-  npm-fiso project [watchlist] [output]
-  npm-fiso -h | --help
+  npm-fixo globals [watchlist] [output]
+  npm-fixo project [watchlist] [output]
+  npm-fixo -h | --help
 
 Arguments:
   watchlist   Path to the watchlist file, "-" for STDIN,
@@ -34,14 +34,14 @@ Output format:
 
 Examples:
   # From a regular file:
-  npm-fiso globals ./watchlist.txt ./out.txt
+  npm-fixo globals ./watchlist.txt ./out.txt
 
   # Using bundled aliases (file lives in package's watchlists/):
-  npm-fiso project @bundled/common -
-  npm-fiso globals bundled:angular -
+  npm-fixo project @bundled/common -
+  npm-fixo globals bundled:angular -
 
   # Pipe:
-  cat watchlist.txt | npm-fiso project - -
+  cat watchlist.txt | npm-fixo project - -
 `);
 }
 
