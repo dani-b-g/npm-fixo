@@ -1,0 +1,11 @@
+# Don’t allow broad write without review from owners
+
+# CORE CLI
+/bin/ @dani-b-g
+/src/ @dani-b-g
+
+# Watchlists (REQUEST REVIEW)
+/watchlist/ @dani-b-g
+
+# GitHub meta (workflows, templates)
+/.github/ @dani-b-g
