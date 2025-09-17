@@ -32,8 +32,8 @@
     "security",
     "dependencies"
   ],
-  "author": "Daniel Barriga Grados",
   "license": "MIT",
+  "author": "dani-b-g",
   "bugs": {
     "url": "https://github.com/dani-b-g/npm-fiso/issues"
   },
