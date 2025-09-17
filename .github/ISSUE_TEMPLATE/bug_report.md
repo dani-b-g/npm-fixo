@@ -1,6 +1,6 @@
 ---
 name: "🐞 Bug report"
-about: Report a problem with npm-fiso
+about: Report a problem with npm-fixo
 title: "[Bug]: "
 labels: ["bug"]
 assignees: []
@@ -9,7 +9,7 @@ assignees: []
 ## ✅ Pre-flight checklist
 
 - [ ] I searched **existing issues** and discussions.
-- [ ] I’m using the **latest** npm-fiso version.
+- [ ] I’m using the **latest** npm-fixo version.
 - [ ] I can reproduce this with a **minimal** example.
 - [ ] I removed any **secrets** (tokens, private paths, etc.) from logs.
 
@@ -26,6 +26,6 @@ assignees: []
 **Command(s) executed**
 ```bash
 # Example
-npm-fiso project ./watchlist.txt -
+npm-fixo project ./watchlist.txt -
 # or
-npm-fiso globals @bundled/npm_160925_
+npm-fixo globals @bundled/npm_160925_

@@ -1,6 +1,6 @@
 ---
 name: "✨ Feature request"
-about: Suggest an idea or improvement for npm-fiso
+about: Suggest an idea or improvement for npm-fixo
 title: "[Feature]: "
 labels: ["enhancement"]
 assignees: []
@@ -17,7 +17,7 @@ assignees: []
 **Example usage**
 ```bash
 # Example
-npm-fiso project @bundled/npm_160925 --json -
+npm-fixo project @bundled/npm_160925 --json -
 ````
 
 **Example output (if applicable)**
@@ -54,7 +54,7 @@ npm-fiso project @bundled/npm_160925 --json -
 
 ## 🖥️ Environment (if relevant)
 
-* npm-fiso version:
+* npm-fixo version:
 * Node.js / npm versions:
 * OS / Shell:
 

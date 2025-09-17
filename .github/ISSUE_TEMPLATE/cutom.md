@@ -26,7 +26,7 @@ assignees: []
 
 ## 📄 Watchlist content
 > Attach the file or paste a **representative snippet** (max ~50 lines).
-> Accepted formats by `npm-fiso`:
+> Accepted formats by `npm-fixo`:
 > - `name@version`
 > - `@scope/package@version`
 > - Multiple versions per line (comma-separated): `package@1.2.3, 1.2.4`
@@ -67,14 +67,14 @@ strip-ansi@7.1.0
 
 ## 🧪 Local validation (optional)
 
-> If you tested with `npm-fiso`, paste a trimmed output.
+> If you tested with `npm-fixo`, paste a trimmed output.
 
 **Command used:**
 
 ```bash
 # Examples:
-npm-fiso project @bundled/<alias> -
-npm-fiso globals @bundled/<alias> -
+npm-fixo project @bundled/<alias> -
+npm-fixo globals @bundled/<alias> -
 ```
 
 **Output (trimmed):**

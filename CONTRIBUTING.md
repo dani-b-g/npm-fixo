@@ -1,4 +1,4 @@
-# Contributing to npm-fiso
+# Contributing to npm-fixo
 
 ## Ground rules
 - Use PRs; no direct pushes to `main`.
