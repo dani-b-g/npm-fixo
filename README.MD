@@ -207,57 +207,63 @@ npm-fiso globals ./watchlist.txt -
 npm-fiso project ./watchlist.txt -
 ```
 
+## Bundled watchlists (aliases)
+
+This package includes ready-to-use watchlists under `watchlists/` and exposes simple **aliases** so you don't have to compute paths:
+
+- `@bundled/<name>`  (e.g. `@bundled/common`)
+- `bundled:<name>`   (e.g. `bundled:angular`)
+
+The `.txt` extension is optional.
+
+**Examples**
+```bash
+# Project mode (print to STDOUT)
+npm-fiso project @bundled/common -
+
+# Globals mode
+npm-fiso globals bundled:angular -
+---
+
+Here’s a **README section** you can drop in, showing the bundled watchlists in a table and linking to the repo file. I used your current path **`watchlist/npm_160925.txt`** and provided alias examples.
+
+---
+
 ## Bundled watchlists
 
-This package ships with a set of **predefined watchlists** under:
+These watchlists ship with the package and can be referenced by **path** or by **alias** (`@bundled/<name>` or `bundled:<name>`, with optional `.txt`).
 
-```
-node_modules/npm-fiso/watchlists/
-```
+> **Folder:** `watchlist/` (included in the npm package via `"files"`)
 
-You can pass any of these files as the `watchlist` argument (first CLI parameter), just like you would with your own files.
+| Alias                 | File path                  | Description                           | View in repo                                                                         |
+| --------------------- | -------------------------- | ------------------------------------- | ------------------------------------------------------------------------------------ |
+| `@bundled/npm_160925` | `watchlist/npm_160925.txt` | Snapshot watchlist (dated 2025-09-16) | [Open file](https://github.com/dani-b-g/npm-fiso/blob/main/watchlist/npm_160925.txt) |
 
-### Using a bundled watchlist (project mode)
+### Usage examples
 
-**If `npm-fiso` is installed locally** (dev dependency):
-
-```bash
-npm-fiso project ./node_modules/npm-fiso/watchlists/<file>.txt -
-```
-
-**If `npm-fiso` is installed globally**, compute the absolute path:
+**Project mode (print to STDOUT)**
 
 ```bash
-# macOS/Linux (bash/zsh)
-WATCHLIST="$(npm root -g)/npm-fiso/watchlists/<file>.txt"
+# Using alias
+npm-fiso project @bundled/npm_160925 -
+
+# Using direct path (when installed locally)
+npm-fiso project ./node_modules/npm-fiso/watchlist/npm_160925.txt -
+```
+
+**Globals mode**
+
+```bash
+# Using alias
+npm-fiso globals bundled:npm_160925 -
+
+# Using absolute path (cross-platform via Node resolution)
+WATCHLIST="$(node -p "require('path').join(require('path').dirname(require.resolve('npm-fiso/package.json')), 'watchlist', 'npm_160925.txt')")"
 npm-fiso globals "$WATCHLIST" -
 ```
 
-**Cross-platform (macOS/Linux/Windows) via Node resolution:**
+> Tip: The `.txt` extension is optional when using aliases (e.g., `@bundled/npm_160925`).
 
-```bash
-# macOS/Linux (bash/zsh)
-WATCHLIST=$(node -p "require('path').join(require('path').dirname(require.resolve('npm-fiso/package.json')), 'watchlists', '<file>.txt')")
-npm-fiso project "$WATCHLIST" -
-
-# Windows PowerShell
-$watchlist = Join-Path (Split-Path (node -p "require('path').dirname(require.resolve('npm-fiso/package.json'))")) "watchlists\<file>.txt"
-npm-fiso project $watchlist -
-```
-
-### Listing bundled files
-
-```bash
-# macOS/Linux
-node -e "const fs=require('fs'),p=require('path');const base=p.dirname(require.resolve('npm-fiso/package.json'));console.log(fs.readdirSync(p.join(base,'watchlists')).join('\n'));"
-
-# Windows PowerShell
-node -e "const fs=require('fs'),p=require('path');const base=p.dirname(require.resolve('npm-fiso/package.json'));console.log(fs.readdirSync(p.join(base,'watchlists')).join('\n'));"
-```
-
-> Tip: When using `npx npm-fiso ...`, you can still compute the path at runtime using the Node snippet above and pass it to the CLI.
-
----
 
 
 ## License

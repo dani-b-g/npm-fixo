@@ -19,34 +19,29 @@ Usage:
   npm-fiso -h | --help
 
 Arguments:
-  watchlist   Path to the watchlist file, or "-" for STDIN.
+  watchlist   Path to the watchlist file, "-" for STDIN,
+              or a bundled alias:
+                - @bundled/<name>   (e.g. @bundled/common)
+                - bundled:<name>    (e.g. bundled:angular)
+              ".txt" is optional and added if missing.
               Default: ./watchlist.txt
   output      Path to the output file, or "-" for STDOUT.
               Default: ./matches.txt
 
 Output format:
-  # Matches (global|project npm)    root_package    trace_to_affected
-  npm    <root>@<version>    <root>@<version> > ... > <match>@<version>
+  # Matches (global|project npm)\troot_package\ttrace_to_affected
+  npm\t<root>@<version>\t<root>@<version> > ... > <match>@<version>
 
 Examples:
+  # From a regular file:
   npm-fiso globals ./watchlist.txt ./out.txt
-  cat list.txt | npm-fiso project - -
 
-Bundled watchlists:
-  This package includes ready-to-use watchlists under:
-    node_modules/npm-fiso/watchlists/
+  # Using bundled aliases (file lives in package's watchlists/):
+  npm-fiso project @bundled/common -
+  npm-fiso globals bundled:angular -
 
-You can pass them as the first argument (watchlist). Examples:
-
-    # Local install (project)
-    npm-fiso project ./node_modules/npm-fiso/watchlists/<file>.txt -
-
-    # Global install (bash/zsh)
-    WATCHLIST="$(npm root -g)/npm-fiso/watchlists/<file>.txt"
-    npm-fiso globals "$WATCHLIST" -
-
-    # Cross-platform (compute absolute path at runtime)
-    node -p "require('path').join(require('path').dirname(require.resolve('npm-fiso/package.json')), 'watchlists', '<file>.txt')"
+  # Pipe:
+  cat watchlist.txt | npm-fiso project - -
 `);
 }
 
