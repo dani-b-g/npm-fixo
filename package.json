@@ -15,7 +15,7 @@
     "src",
     "README.md",
     "LICENSE",
-    "watchlist"
+    "watchlists"
   ],
   "scripts": {
     "test": "echo \"No tests yet\" && exit 0"
