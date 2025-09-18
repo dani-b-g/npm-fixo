@@ -1,6 +1,12 @@
 # npm-fixo
 
+[![npm version](https://img.shields.io/npm/v/npm-fixo?logo=npm)](https://www.npmjs.com/package/npm-fixo)
+[![npm downloads](https://img.shields.io/npm/dm/npm-fixo)](https://www.npmjs.com/package/npm-fixo)
+![node version](https://img.shields.io/node/v/npm-fixo?logo=node.js)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/dani-b-g/npm-fixo/issues)
+[![Made with Node.js](https://img.shields.io/badge/Made%20with-Node.js-43853d?logo=node.js&logoColor=white)](https://nodejs.org/)
+
 
 Scan **npm dependencies** (both **toplevel** and **transitive**) against a **watchlist**, and print **where each match appears**, including the **root package** and a **full trace** down to the affected package.
 
