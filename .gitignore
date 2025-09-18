@@ -1,0 +1,51 @@
+# --- Node / npm ---
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json.*   # variantes de lock rotas; NO ignoramos package-lock.json normal
+.npmrc                # puede contener tokens locales
+
+# Archivos de empaquetado y caches
+*.tgz
+.nyc_output/
+coverage/
+.eslintcache
+.cache/
+.tmp/
+temp/
+tmp/
+
+# Builds (si en algún momento generas dist/lib)
+dist/
+build/
+lib/
+out/
+
+# Herramientas / bundlers (por si las usas en el futuro)
+.parcel-cache/
+.turbo/
+.vercel/
+.netlify/
+
+# IDE / SO
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Entornos
+.env
+.env.*
+!.env.example
+
+# Test outputs (cuando añadas tests)
+junit.xml
+reports/
+coverage-final.json
+
+# Logs en general
+*.log
+logs/
