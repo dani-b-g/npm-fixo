@@ -233,7 +233,7 @@ npm-fixo globals bundled:angular -
 ```
 ---
 
-Here’s a **README section** you can drop in, showing the bundled watchlists in a table and linking to the repo file. I used your current path **`watchlist/npm_160925.txt`** and provided alias examples.
+Here’s a **README section** you can drop in, showing the bundled watchlists in a table and linking to the repo file. I used your current path **`watchlists/npm_160925.txt`** and provided alias examples.
 
 ---
 
@@ -241,11 +241,11 @@ Here’s a **README section** you can drop in, showing the bundled watchlists in
 
 These watchlists ship with the package and can be referenced by **path** or by **alias** (`@bundled/<name>` or `bundled:<name>`, with optional `.txt`).
 
-> **Folder:** `watchlist/` (included in the npm package via `"files"`)
+> **Folder:** `watchlists/` (included in the npm package via `"files"`)
 
 | Alias                 | File path                  | Description                           | View in repo                                                                         |
 | --------------------- | -------------------------- | ------------------------------------- | ------------------------------------------------------------------------------------ |
-| `@bundled/npm_160925` | `watchlist/npm_160925.txt` | Snapshot watchlist (dated 2025-09-16) | [Open file](https://github.com/dani-b-g/npm-fixo/blob/main/watchlist/npm_160925.txt) |
+| `@bundled/npm_160925` | `watchlists/npm_160925.txt` | Snapshot watchlist (dated 2025-09-16) | [Open file](https://github.com/dani-b-g/npm-fixo/blob/main/watchlists/npm_160925.txt) |
 
 ### Usage examples
 
@@ -256,7 +256,7 @@ These watchlists ship with the package and can be referenced by **path** or by *
 npm-fixo project @bundled/npm_160925 -
 
 # Using direct path (when installed locally)
-npm-fixo project ./node_modules/npm-fixo/watchlist/npm_160925.txt -
+npm-fixo project ./node_modules/npm-fixo/watchlists/npm_160925.txt -
 ```
 
 **Globals mode**
@@ -266,7 +266,7 @@ npm-fixo project ./node_modules/npm-fixo/watchlist/npm_160925.txt -
 npm-fixo globals bundled:npm_160925 -
 
 # Using absolute path (cross-platform via Node resolution)
-WATCHLIST="$(node -p "require('path').join(require('path').dirname(require.resolve('npm-fixo/package.json')), 'watchlist', 'npm_160925.txt')")"
+WATCHLIST="$(node -p "require('path').join(require('path').dirname(require.resolve('npm-fixo/package.json')), 'watchlists', 'npm_160925.txt')")"
 npm-fixo globals "$WATCHLIST" -
 ```
 
